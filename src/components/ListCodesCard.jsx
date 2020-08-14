@@ -62,14 +62,13 @@ export const ListCodesCard = ({ ...rest }) => {
                 venueCodesQuery.data.map((datum, index) => (
                   isActiveCode(datum.end_dttm) ?
                     <TableRow key={index}>
-                      <TableCell scope="row">
+                      <TableCell align="start" scope="row">
                         <strong>{datum.name}</strong>
                       </TableCell>
-                      <TableCell>{datum.code}</TableCell>
-                      <TableCell size="xsmall">
-                        <Box gap="small" direction="row">
+                      <TableCell align="start">{datum.code}</TableCell>
+                      <TableCell size="1/4" align="center">
+                        <Box justify="end" gap="small" direction="row">
                           <Button
-                            alignSelf="center"
                             plain
                             href={`/qr/generate/${datum.venue_id}/${datum.code}`}
                             target='_blank'
@@ -77,7 +76,6 @@ export const ListCodesCard = ({ ...rest }) => {
                             icon={<DocumentPdf />}
                           />
                           <Button
-                            alignSelf="center"
                             plain
                             onClick={async () => {
                               const conf = window.confirm(venueCodeDeletePrompt);
