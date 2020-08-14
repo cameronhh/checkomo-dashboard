@@ -9,7 +9,6 @@ import {
   isTokenStored,
   isVenueSelected,
   removeAuthorisedVenues,
-  removeDarkMode,
   removeToken,
   setDarkMode,
   setToken,
