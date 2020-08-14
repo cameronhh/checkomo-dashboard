@@ -58,6 +58,8 @@ export const ExportsCard = ({ venueId, ...rest }) => {
     [selectedVenue.id, exportRange.in_dttm_min, exportRange.in_dttm_max],
     getAllVisitsInRange, {
       enabled: selectedVenue.id
+        && exportRange.in_dttm_min
+        && exportRange.in_dttm_max
     }
   );
 
