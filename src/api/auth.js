@@ -16,7 +16,6 @@ export const postLogout = () => {
   return new Promise((resolve, reject) => {
     localStorage.removeItem('token');
     localStorage.removeItem('userDetail');
-    localStorage.removeItem('selectedVenue');
     localStorage.removeItem('venues');
     resolve();
   })

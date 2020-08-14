@@ -77,14 +77,14 @@ export const App = () => {
                 <Box fill>
                   <AppBar>
                     <Box direction="row" align="center">
-                      {size === "small" && <Button
+                      {(loggedIn && size === "small") && <Button
                         icon={<Menu color={showSidebar ? "accent-1" : "white"} />}
                         onClick={() => setShowSidebar(!showSidebar)}
                       />}
                       {size !== "small" && <Heading level='3' margin='small'>Checkomo</Heading>}
                     </Box>
                     <Box direction="row" align="center">
-                      <UserMenu />
+                      {loggedIn && <UserMenu />}
                     </Box>
                   </AppBar>
                   <Box direction="row" fill>
