@@ -77,14 +77,18 @@ export const App = () => {
                   <AppBar>
                     <Box direction="row" align="center">
                       {
-                        loggedIn && 
-                        size === "small" ? 
-                        <Button
-                          icon={<Menu color={showSidebar ? "accent-1" : "white"} />}
-                          onClick={() => setShowSidebar(!showSidebar)}
-                        />
-                        :
-                        <Heading level='3' margin='small'>Checkomo</Heading>
+                        loggedIn &&
+                          size === "small" ?
+                          <Button
+                            icon={
+                              <Menu
+                                color={showSidebar ? "accent-1" : "white"}
+                              />
+                            }
+                            onClick={() => setShowSidebar(!showSidebar)}
+                          />
+                          :
+                          <Heading level='3' margin='small'>Checkomo</Heading>
                       }
                     </Box>
                     {size === "small" && <Box direction="row" align="center">
@@ -103,7 +107,9 @@ export const App = () => {
                           appIcon={<Map color="brand" />}
                           appName="Checkomo"
                           items={sidebar}
-                          setShowSidebar={size === "small" ? setShowSidebar : null}
+                          setShowSidebar={
+                            size === "small" ? setShowSidebar : null
+                          }
                           visible={showSidebar}
                         />
                       )
