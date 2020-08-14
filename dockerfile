@@ -7,6 +7,6 @@ COPY ./ /app/
 ENV REACT_APP_API_BASE https://dash.checkomo.com/api
 RUN yarn build
 
-FROM nginx
+FROM nginx:1.19.1-alpine
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
