@@ -71,7 +71,6 @@ export const App = () => {
           themeMode={state.darkMode ? "dark" : "light"}
         >
           <ResponsiveContext.Consumer>
-
             {size =>
               (
                 <Box fill>
@@ -150,11 +149,6 @@ export const App = () => {
                   </Box>
                 </Box>
               )}
-
-
-
-
-
           </ResponsiveContext.Consumer>
         </Grommet>
       </Router>
