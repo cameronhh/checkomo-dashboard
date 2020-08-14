@@ -1,6 +1,7 @@
-import axios from 'axios';
-import moment from 'moment';
-import { state } from './auth';
+import axios from "axios";
+import moment from "moment";
+import { state } from "./auth";
+import { setAuthorisedVenues } from "../store";
 
 const authHeader = (token) => ({
   headers: { Authorization: `Bearer ${token}` }
@@ -26,7 +27,7 @@ export const getAllVenues = async () => {
     header
   );
 
-  localStorage.setItem('venues', JSON.stringify(res.data));
+  setAuthorisedVenues(res.data);
 
   return res.data;
 }

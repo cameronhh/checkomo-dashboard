@@ -10,6 +10,8 @@ import { useMutation } from "react-query";
 
 import { postCreateVenue } from "../api";
 
+import { setLocalSelectedVenue } from "../store";
+
 import { UserContext } from "../UserContext";
 
 export const NewVenueForm = () => {
@@ -46,9 +48,7 @@ export const NewVenueForm = () => {
           })
             .then((res) => {
               setSelectedVenue(res);
-              localStorage.setItem('selectedVenue',
-                JSON.stringify(res));
-
+              setLocalSelectedVenue(res);
             })
         }}
       />

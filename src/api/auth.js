@@ -1,22 +1,34 @@
 import axios from 'axios';
-import jwt from 'jsonwebtoken';
+
+import {
+  getAuthorisedVenues,
+  getLocalSelectedVenue,
+  getToken,
+  getUserDetail,
+  isDarkMode,
+  isTokenStored,
+  isVenueSelected,
+  removeAuthorisedVenues,
+  removeDarkMode,
+  removeToken,
+  setDarkMode,
+  setToken,
+} from "../store";
 
 export const postLogin = async (loginParams) => {
   const res = await axios.post(`${process.env.REACT_APP_API_BASE}/token`,
-    loginParams);
+    loginParams
+  );
 
-  localStorage.setItem('token', JSON.stringify(res.data.token));
-  const decodedToken = jwt.decode(res.data.token);
-  localStorage.setItem('userDetail', JSON.stringify(decodedToken));
+  setToken(res.data.token);
 
   return res.data;
 }
 
 export const postLogout = () => {
   return new Promise((resolve, reject) => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userDetail');
-    localStorage.removeItem('venues');
+    removeToken();
+    removeAuthorisedVenues();
     resolve();
   })
 }
@@ -30,20 +42,20 @@ export const handleLogout = () => {
 }
 
 export const switchTheme = () => {
-  if (!!localStorage.getItem('darkMode')) {
-    localStorage.removeItem('darkMode');
+  if (isDarkMode()) {
+    setDarkMode(false);
   } else {
-    localStorage.setItem('darkMode', JSON.stringify(true));
+    setDarkMode(true);
   }
   window.location.reload(false);
 }
 
 export const state = {
-  logged: !!localStorage.getItem('token'),
-  token: JSON.parse(localStorage.getItem('token')),
-  userDetail: JSON.parse(localStorage.getItem('userDetail')),
-  darkMode: !!localStorage.getItem('darkMode'),
-  venues: JSON.parse(localStorage.getItem('venues')),
-  hasSelectedVenue: !!localStorage.getItem('selectedVenue'),
-  selectedVenue: JSON.parse(localStorage.getItem('selectedVenue')),
+  logged: isTokenStored(),
+  token: getToken(),
+  userDetail: getUserDetail(),
+  darkMode: isDarkMode(),
+  venues: getAuthorisedVenues(),
+  hasSelectedVenue: isVenueSelected(),
+  selectedVenue: getLocalSelectedVenue(),
 }
