@@ -9,12 +9,11 @@ import {
   Box,
   Heading,
   Button,
-  Layer,
   Grommet,
   ResponsiveContext,
 } from "grommet";
 
-import { FormClose, Map, Menu } from "grommet-icons";
+import { Map, Menu } from "grommet-icons";
 
 import {
   routes,
@@ -22,7 +21,7 @@ import {
   theme,
 } from "./config";
 
-import { AppBar, Sidebar, Spinner, View } from "./components";
+import { AppBar, Sidebar, Spinner, UserMenu } from "./components";
 import { PrivateRoute } from './router/PrivateRoute';
 import { GuestRoute } from './router/GuestRoute';
 
@@ -40,6 +39,8 @@ export const App = () => {
 
   const value = useMemo(() => (
     {
+      loggedIn,
+      setLoggedIn,
       userDetail,
       setUserDetail,
       venues,
@@ -47,7 +48,10 @@ export const App = () => {
       selectedVenue,
       setSelectedVenue,
     }
-  ), [userDetail,
+  ), [
+      loggedIn,
+      setLoggedIn,
+      userDetail,
       setUserDetail,
       venues,
       setVenues,
@@ -56,7 +60,7 @@ export const App = () => {
     ]
   );
 
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   return (
     <UserContext.Provider value={value}>
@@ -72,45 +76,29 @@ export const App = () => {
               (
                 <Box fill>
                   <AppBar>
-                      <Button
-                        icon={<Menu />}
+                    <Box direction="row" align="center">
+                      {size === "small" && <Button
+                        icon={<Menu color={showSidebar ? "accent-1" : "white"} />}
                         onClick={() => setShowSidebar(!showSidebar)}
-                      />
-                    <Heading level='3' margin='small'>
-                      Checkomo
-              </Heading>
+                      />}
+                      {size !== "small" && <Heading level='3' margin='small'>Checkomo</Heading>}
+                    </Box>
+                    <Box direction="row" align="center">
+                      <UserMenu />
+                    </Box>
                   </AppBar>
                   <Box direction="row" fill>
                     {
-                      loggedIn && showSidebar &&
+                      (loggedIn) &&
                       (
-                        size !== "small" ?
-                          <Sidebar
-                            appIcon={<Map color="brand" />}
-                            appName="Checkomo"
-                            items={sidebar}
-                          />
-                          :
-                          <Layer>
-                            <Box
-                              fill
-                              background='white'
-                              align='center'
-                              justify='center'
-                            >
-                              <Sidebar
-                                fill
-                                appIcon={<Map color="brand" />}
-                                appName="Checkomo"
-                                items={sidebar}
-                                setShowSidebar={setShowSidebar}
-                              />
-                              <Button
-                                icon={<FormClose />}
-                                onClick={() => setShowSidebar(false)}
-                              />
-                            </Box>
-                          </Layer>
+                        <Sidebar
+                          fill={size === "small"}
+                          appIcon={<Map color="brand" />}
+                          appName="Checkomo"
+                          items={sidebar}
+                          setShowSidebar={size === "small" ? setShowSidebar : null}
+                          visible={showSidebar}
+                        />
                       )
                     }
                     <Box flex background="light-2">

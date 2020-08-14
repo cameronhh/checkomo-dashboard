@@ -13,6 +13,7 @@ export * from "./RecentCheckInsCard";
 export * from "./ResponsiveCard";
 export * from "./Row";
 export * from "./SelectVenueForm";
+export * from "./SettingsCard";
 export * from "./Sidebar";
 export * from "./SignUpForm";
 export * from "./Spinner";

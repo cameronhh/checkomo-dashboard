@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
 import {
   Column,
+  SettingsCard,
   Row,
-  View,
-  SignUpForm
+  View
 } from "../components";
 
 
-const SignUp = (props) => {
+const Settings = () => {
   return (
     <View>
       <Row>
         <Column>
-          <SignUpForm />
+          <SettingsCard />
         </Column>
       </Row>
     </View>
-  )
-};
+  );
+}
 
-export default SignUp;
+export default Settings;

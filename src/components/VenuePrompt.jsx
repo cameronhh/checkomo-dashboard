@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 
 import { UserContext } from "../UserContext";
 
@@ -7,11 +7,10 @@ import {
   Box,
   Button,
   Heading,
-  Select,
-  TextInput,
 } from "grommet";
 
 import {
+  Card,
   NewVenueForm,
   Overlay,
   SelectVenueForm,
@@ -30,7 +29,6 @@ export const VenuePrompt = () => {
     venues,
     setVenues,
     selectedVenue,
-    setSelectedVenue
   } = useContext(UserContext);
 
   const venuesQuery = useQuery('venues', getAllVenues, {
@@ -43,41 +41,46 @@ export const VenuePrompt = () => {
 
   return (
     <Overlay>
-      {
-        venues &&
-        (
-          !venues.length || creatingNewVenue ?
-            <Box pad="small">
-              <NewVenueForm />
-              <Box pad={{ horizontal: "medium", bottom: "medium" }}>
-                {
-                  venues.length &&
-                  (
-                    <Button
-                      label="Cancel"
-                      onClick={() => {
-                        setCreatingNewVenue(false);
-                      }}
-                    />
-                  )
-                }
-              </Box>
-            </Box>
-            :
-            <Box pad="small">
-              <SelectVenueForm venues={venues} />
-              <Box pad={{ horizontal: "medium", bottom: "medium" }}>
-                <Button
-                  label="New Venue"
-                  onClick={() => {
-                    setCreatingNewVenue(true)
-                  }}
-                />
-              </Box>
-            </Box>
-        )
-      }
-
+      <Card>
+        {
+          venues &&
+          (
+            (!venues.length || creatingNewVenue) ?
+              <Fragment>
+                <Heading textAlign="center" level="2" size="small">Create New Venue</Heading>
+                <NewVenueForm />
+                <Box pad={{ horizontal: "medium", bottom: "medium" }}>
+                  {
+                    venues.length ?
+                      (
+                        <Button
+                          label="Cancel"
+                          onClick={() => {
+                            setCreatingNewVenue(false);
+                          }}
+                        />
+                      )
+                      :
+                      null
+                  }
+                </Box>
+              </Fragment>
+              :
+              <Fragment>
+                <Heading textAlign="center" level="2" size="small">Select Venue</Heading>
+                <SelectVenueForm venues={venues} />
+                <Box pad={{ horizontal: "medium", bottom: "medium" }}>
+                  <Button
+                    label="New Venue"
+                    onClick={() => {
+                      setCreatingNewVenue(true)
+                    }}
+                  />
+                </Box>
+              </Fragment>
+          )
+        }
+      </Card>
     </Overlay>
   )
 }

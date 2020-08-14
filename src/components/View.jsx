@@ -9,7 +9,7 @@ export const View = ({ ...rest }) => {
   return (
     <Box
       align="center"
-      pad={{horizontal: "small", top: "small", bottom: "large"}}
+      pad={{horizontal: "small", top: "small", bottom: "xlarge"}}
       fill
       flex
       overflow={{ vertical: "scroll", horizontal: "hidden" }}

@@ -1,25 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { Menu } from "grommet";
 
-import { UserContext } from "../UserContext";
-
 import {
-  SettingsOption,
+  UserSettings,
 } from 'grommet-icons';
 
 import {
   handleLogout,
-  switchTheme,
+  // switchTheme,
 } from "../api"
 
 import { removeLocalSelectedVenue } from "../store";
 
-import { Avatar } from "./";
-
 
 export const UserMenu = (props) => {
-  const { setSelectedVenue } = useContext(UserContext);
 
   const menuItems = [
     {
@@ -41,15 +36,10 @@ export const UserMenu = (props) => {
 
   return (
     <Menu
-      dropAlign={{ bottom: "top" }}
-      dropBackground={{light: 'white', dark: 'black'}}
-      icon={false}
+      dropProps={{ align: { top: 'bottom', right: 'right' } }}
+      dropBackground={{ light: 'white', dark: 'black' }}
+      icon={<UserSettings />}
       items={menuItems}
-      label={
-        <Avatar name='Logged in user'>
-          <SettingsOption />
-        </Avatar>
-      }
       {...props}
     />
   );

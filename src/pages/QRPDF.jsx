@@ -34,8 +34,8 @@ const QRPDF = () => {
         responsive={false}
         align="center"
         overflow="scroll"
-        gap="medium"
-        pad="medium"
+        gap="xsmall"
+        pad="large"
       >
         <ReactToPdf
           targetRef={ref}
@@ -59,6 +59,7 @@ const QRPDF = () => {
           background="white"
           width={{ min: "794px", max: "794px" }}
           height={{ min: "1123px", max: "1123px" }}
+          hidden
         >
           <Heading textAlign="center" level="1">
             {pdfText.header}

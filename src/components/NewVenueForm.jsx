@@ -3,7 +3,6 @@ import React, { useContext, useState } from "react"
 import {
   Box,
   Button,
-  Heading,
   TextInput,
 } from "grommet";
 
@@ -23,7 +22,6 @@ export const NewVenueForm = () => {
 
   return (
     <Box pad="medium" gap="medium">
-    <Heading level="2" size="small">Create New Venue</Heading>
       <TextInput
         name="venueName"
         placeholder="Venue Name"

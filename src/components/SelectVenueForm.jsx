@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 
 import {
   Box,
   Button,
-  Heading,
   Select,
 } from "grommet";
 
@@ -22,7 +21,6 @@ export const SelectVenueForm = ({ venues }) => {
 
   return (
     <Box pad="medium" gap="medium">
-      <Heading level="2" size="small">Select Venue</Heading>
       <Select
         options={venues.map((v) => v.name)}
         placeholder="Select a venue"

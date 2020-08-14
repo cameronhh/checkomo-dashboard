@@ -1,9 +1,8 @@
 import {
-  Map,
-  BarChart,
-  Scan,
   Download,
-  Group
+  Group,
+  Map,
+  Scan,
 } from "grommet-icons";
 
 export const sidebar = [
@@ -26,10 +25,5 @@ export const sidebar = [
     label: "Export",
     Icon: Download,
     path: "/export"
-  },
-  {
-    label: "Coming Soon",
-    Icon: BarChart,
-    path: "#"
   },
 ];

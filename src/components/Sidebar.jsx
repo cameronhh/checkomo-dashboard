@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box } from "grommet";
 
-import { MenuButton, UserMenu } from "./";
+import { MenuButton } from "./";
 
 
 export const Sidebar = (props) => {
@@ -26,9 +26,6 @@ export const Sidebar = (props) => {
           />
         ))}
       </Box>
-      <UserMenu
-        alignSelf="center"
-      />
     </Box>
   );
 }
