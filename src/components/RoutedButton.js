@@ -34,6 +34,7 @@ class RoutedButton extends React.Component {
     const pathMatch = matchPath(location.pathname, { exact, path, strict });
     return (
       <Button
+        focusIndicator={false}
         active={active && !!pathMatch}
         onClick={this.onClick}
         {...rest}

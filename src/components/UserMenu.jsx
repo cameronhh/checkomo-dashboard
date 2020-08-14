@@ -36,6 +36,7 @@ export const UserMenu = (props) => {
 
   return (
     <Menu
+      focusIndicator={false}
       dropProps={{ align: { top: 'bottom', right: 'right' } }}
       dropBackground={{ light: 'white', dark: 'black' }}
       icon={<UserSettings />}

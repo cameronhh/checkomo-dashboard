@@ -85,6 +85,7 @@ export const App = () => {
                                 color={showSidebar ? "accent-1" : "white"}
                               />
                             }
+                            focusIndicator={false}
                             onClick={() => setShowSidebar(!showSidebar)}
                           />
                           :
