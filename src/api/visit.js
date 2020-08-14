@@ -55,10 +55,13 @@ export const postVisit = async (mutationData) => {
   const venueId = mutationData.venueId;
   delete mutationData.venueId;
 
-  const inDateTime = parseManualCheckInDatetime(
-    mutationData.customerCheckInDate,
-    mutationData.customerCheckInTime
-  );
+  const inDateTime = mutationData.customerCheckInDate ?
+    parseManualCheckInDatetime(
+      mutationData.customerCheckInDate,
+      mutationData.customerCheckInTime
+    )
+    :
+    moment.utc().utc().format('YYYY-MM-DD HH:mm:ss');
 
   const body = {
     "given_name": mutationData.customerFirstName,
