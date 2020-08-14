@@ -60,10 +60,10 @@ const Login = (props) => {
             >
               <FormField
                 required
-                name="username"
+                name="email"
                 label="Email"
               >
-                <TextInput name="username" />
+                <TextInput name="email" />
               </FormField>
               <FormField
                 required
