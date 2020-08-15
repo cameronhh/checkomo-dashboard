@@ -21,29 +21,31 @@ import { getAllVisits } from '../api'
 const columns = [
   {
     property: 'surname',
+    size: "xsmall",
     search: true,
     header: <Text>Last Name</Text>,
+    render: datum => <strong>{datum.surname}</strong>
   },
   {
     property: 'given_name',
+    size: "xsmall",
     header: <Text>First Name</Text>,
   },
   {
     property: 'in_dttm',
+    size: "xsmall",
     header: 'Time In',
     render: datum =>
       datum.in_dttm && moment.utc(datum.in_dttm).local().format('h:mma'),
   },
   {
     property: 'dateIn',
+    size: "xsmall",
     header: 'Date',
     render: datum => {
       if (datum.in_dttm) {
         const date = moment.utc(datum.in_dttm).local()
-        return moment().isSame(date, 'day') ?
-          'Today'
-          :
-          date.format('DD/MM/YYYY')
+        return date.format('DD/MM/YYYY')
       }
     },
   },
@@ -54,6 +56,7 @@ const columnsMobile = [
     property: 'surname',
     search: true,
     header: <Text>Last Name</Text>,
+    render: datum => <strong>{datum.surname}</strong>
   },
   {
     property: 'in_dttm',
@@ -86,6 +89,17 @@ export const RecentCheckInsCard = ({ ...rest }) => {
         <Heading level="2" margin="none" size="small">
           Recent Check-Ins
         </Heading>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        {/* Why is this the only thing that works */}
+        {size !== "small" &&
+        (<><Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box></>)}
         <Menu
           dropProps={{
             align: { top: 'bottom', left: 'left' },
@@ -114,6 +128,7 @@ export const RecentCheckInsCard = ({ ...rest }) => {
                 property: "in_dttm"
               }}
               resizable={true}
+              onClickRow={() => { }}
               data={allVisitsQuery.data
                 .map((d) => ({
                   ...d, dateIn: d.in_dttm,
