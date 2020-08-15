@@ -8,7 +8,8 @@ import {
   TableBody,
   TableRow,
   Text,
-  Heading
+  Heading,
+  ResponsiveContext,
 } from "grommet";
 
 import {
@@ -40,6 +41,7 @@ const isActiveCode = (endDateTime) => {
 export const ListCodesCard = ({ ...rest }) => {
 
   const { selectedVenue } = useContext(UserContext);
+  const size = useContext(ResponsiveContext);
 
   const venueCodesQuery = useQuery(
     [selectedVenue.id],
@@ -50,13 +52,13 @@ export const ListCodesCard = ({ ...rest }) => {
   return (
     <Card>
       <Heading level="2" margin="none" size="small">
-        {`${selectedVenue.name} Active Venue Codes`}
+        Active Venue Codes
       </Heading>
       {venueCodesQuery.data && !venueCodesQuery.data.length ?
         <Box align="center"><Text><i>No Active Venue Codes</i></Text></Box>
         :
         <Table>
-          <TableBody margin="small">
+          <TableBody margin="xsmall">
             {
               venueCodesQuery.status === 'success' ?
                 venueCodesQuery.data.map((datum, index) => (
@@ -65,7 +67,7 @@ export const ListCodesCard = ({ ...rest }) => {
                       <TableCell align="start" scope="row">
                         <strong>{datum.name}</strong>
                       </TableCell>
-                      <TableCell align="start">{datum.code}</TableCell>
+                      {size !== "small" && <TableCell align="start">{datum.code}</TableCell>}
                       <TableCell size="1/4" align="center">
                         <Box justify="end" gap="small" direction="row">
                           <Button

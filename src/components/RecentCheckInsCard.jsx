@@ -84,7 +84,7 @@ export const RecentCheckInsCard = ({ ...rest }) => {
     <Card>
       <Box direction="row" justify="between" gap="medium">
         <Heading level="2" margin="none" size="small">
-          {`${selectedVenue.name} Recent Check-Ins`}
+          Recent Check-Ins
         </Heading>
         <Menu
           dropProps={{
