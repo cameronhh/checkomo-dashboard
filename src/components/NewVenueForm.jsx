@@ -49,6 +49,7 @@ export const NewVenueForm = () => {
             .then((res) => {
               setSelectedVenue(res);
               setLocalSelectedVenue(res);
+              window.location.reload(false);
             })
         }}
       />
