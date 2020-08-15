@@ -14,10 +14,10 @@ const QRCodes = () => {
     <View>
       <Row>
         <Column>
-          <NewCodeCard />
+          <ListCodesCard />
         </Column>
         <Column>
-          <ListCodesCard />
+          <NewCodeCard />
         </Column>
       </Row>
     </View>
