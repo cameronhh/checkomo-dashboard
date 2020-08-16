@@ -89,11 +89,11 @@ export const App = () => {
                             onClick={() => setShowSidebar(!showSidebar)}
                           />
                           :
-                          <Heading level='3' margin='small'>Checkomo{selectedVenue && ` - ${selectedVenue.name}`}</Heading>
+                          <Heading level='3' margin='small'>Checkomo{(selectedVenue && loggedIn) && ` - ${selectedVenue.name}`}</Heading>
                       }
                     </Box>
                     {size === "small" && <Box direction="row" align="center">
-                      <Heading level='3' margin='small'>{selectedVenue && `${selectedVenue.name}`}</Heading>
+                      <Heading level='3' margin='small'>{(selectedVenue && loggedIn) && `${selectedVenue.name}`}</Heading>
                     </Box>}
                     <Box direction="row" align="center">
                       {loggedIn && <UserMenu />}
