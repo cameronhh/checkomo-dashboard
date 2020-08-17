@@ -18,7 +18,7 @@ export const MenuButton = ({ Icon, label, path, setShowSidebar, ...rest }) => {
     <RoutedButton
       setShowSidebar={setShowSidebar}
       active={active}
-      hoverIndicator={{ light: "light-3", dark: "dark-1" }}
+      hoverIndicator={{ light: "light-2", dark: "dark-1" }}
       path={path}
       {...rest}
     >
@@ -28,7 +28,7 @@ export const MenuButton = ({ Icon, label, path, setShowSidebar, ...rest }) => {
         gap="small"
         align="center"
         justify="start"
-        background={active ? {light: "light-3", dark: "dark-1"} : null}
+        background={active ? {light: "light-2", dark: "dark-1"} : null}
       >
         <Icon color={
           active ?

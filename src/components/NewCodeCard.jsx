@@ -57,7 +57,7 @@ export const NewCodeCard = ({ ...rest }) => {
         }}
       >
         <Box gap="medium">
-          <FormField required name="newVenueCodeName" label="Label">
+          <FormField name="newVenueCodeName" label="Label">
             <TextInput name="newVenueCodeName" type="text" />
           </FormField>
           <FormField required name="newVenueCode" label="New Code">

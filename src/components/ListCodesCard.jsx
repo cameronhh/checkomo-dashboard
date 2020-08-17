@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 
 import {
   Box,
@@ -54,7 +54,7 @@ export const ListCodesCard = ({ ...rest }) => {
       <Heading level="2" margin="none" size="small">
         Active Venue Codes
       </Heading>
-      {venueCodesQuery.data && !venueCodesQuery.data.length ?
+      {(venueCodesQuery.data && !venueCodesQuery.data.length) ?
         <Box align="center"><Text><i>No Active Venue Codes</i></Text></Box>
         :
         <Table>
@@ -64,10 +64,10 @@ export const ListCodesCard = ({ ...rest }) => {
                 venueCodesQuery.data.map((datum, index) => (
                   isActiveCode(datum.end_dttm) ?
                     <TableRow key={index}>
-                      <TableCell align="start" scope="row">
+                      {size !== "small" && <TableCell align="start" scope="row">
                         <strong>{datum.name}</strong>
-                      </TableCell>
-                      {size !== "small" && <TableCell align="start">{datum.code}</TableCell>}
+                      </TableCell>}
+                      <TableCell align="start">{datum.code}</TableCell>
                       <TableCell size="1/4" align="center">
                         <Box justify="end" gap="small" direction="row">
                           <Button

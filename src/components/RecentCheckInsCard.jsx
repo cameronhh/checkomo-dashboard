@@ -85,21 +85,10 @@ export const RecentCheckInsCard = ({ ...rest }) => {
 
   return (
     <Card>
-      <Box direction="row" justify="between" gap="medium">
+      <Box direction="row" justify="between" gap="small">
         <Heading level="2" margin="none" size="small">
           Recent Check-Ins
         </Heading>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        {/* Why is this the only thing that works */}
-        {size !== "small" &&
-        (<><Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box></>)}
         <Menu
           dropProps={{
             align: { top: 'bottom', left: 'left' },
