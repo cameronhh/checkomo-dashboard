@@ -9,6 +9,7 @@ import {
 
 
 const CheckIns = () => {
+  document.title = "Check-In | Checkomo";
   return (
     <View>
       <Row>

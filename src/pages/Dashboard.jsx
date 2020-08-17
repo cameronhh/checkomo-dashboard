@@ -9,6 +9,7 @@ import {
 
 
 const Dashboard = () => {
+  document.title = "Recent Check-Ins | Checkomo";
   return (
     <View>
       <Row>

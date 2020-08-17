@@ -9,6 +9,7 @@ import {
 
 
 const Export = () => {
+  document.title = "Export | Checkomo";
   return (
     <View>
       <Row>

@@ -11,6 +11,8 @@ import {
 
 
 const NotFound = () => {
+  document.title = "Page Not Found | Checkomo";
+
   return (
     <View>
       <Row>

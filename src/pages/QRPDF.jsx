@@ -22,6 +22,8 @@ const options = {
 const ref = createRef();
 
 const QRPDF = () => {
+  document.title = "QR Codes | Checkomo";
+
   const urlParams = useParams();
 
   const checkInUrl = `${process.env.REACT_APP_CHECKIN_BASE}/`

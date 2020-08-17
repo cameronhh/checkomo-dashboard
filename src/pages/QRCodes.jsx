@@ -10,6 +10,8 @@ import {
 
 
 const QRCodes = () => {
+  document.title = "QR Codes | Checkomo";
+
   return (
     <View>
       <Row>
