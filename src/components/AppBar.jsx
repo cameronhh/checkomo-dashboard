@@ -13,6 +13,7 @@ export const AppBar = (props) => (
     pad={{ left: 'medium', right: 'medium', vertical: 'small' }}
     gap="small"
     style={{ zIndex: '1' }}
+    elevation="small"
     {...props}
   />
 );

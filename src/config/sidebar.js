@@ -3,17 +3,18 @@ import {
   Group,
   Map,
   Scan,
+  UserExpert
 } from "grommet-icons";
 
 export const sidebar = [
   {
     label: "Recents",
-    Icon: Map,
+    Icon: Group,
     path: "/"
   },
   {
     label: "Check-In",
-    Icon: Group,
+    Icon: UserExpert,
     path: "/checkins"
   },
   {

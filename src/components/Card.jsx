@@ -10,7 +10,7 @@ export const Card = ({...rest}) => {
     <Box
       round
       pad="large"
-
+      elevation="small"
       direction="column"
       background={{light: "white", dark: "black"}}
       gap="medium"

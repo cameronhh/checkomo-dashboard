@@ -89,7 +89,16 @@ export const App = () => {
                             onClick={() => setShowSidebar(!showSidebar)}
                           />
                           :
-                          <Heading level='3' margin='small'>Checkomo{(selectedVenue && loggedIn) && ` - ${selectedVenue.name}`}</Heading>
+                          <Button
+                            plain
+                            href="/"
+                            icon={<Map />}
+                            label={
+                              size !== "xsmall" &&
+                              size !== "small" &&
+                              <Heading level='3' margin="none">Checkomo{(selectedVenue && loggedIn) && ` - ${selectedVenue.name}`}</Heading>
+                            }
+                          />
                       }
                     </Box>
                     {size === "small" && <Box direction="row" align="center">
