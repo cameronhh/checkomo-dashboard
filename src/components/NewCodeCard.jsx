@@ -67,6 +67,7 @@ export const NewCodeCard = ({ ...rest }) => {
             <Text size="small"><i>{newCode}</i></Text>
           </Box>
           <Button
+            primary
             type="submit"
             label="Generate"
           />
