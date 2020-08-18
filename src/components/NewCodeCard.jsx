@@ -26,7 +26,7 @@ export const NewCodeCard = ({ ...rest }) => {
     newVenueCodeName: '',
     newVenueCode: ''
   });
-  const [newCode, setNewCode] = useState(`checkomo.com/checkin/...`);
+  const [newCode, setNewCode] = useState(`checkin.checkomo.com/...`);
 
   const [newVenueCodeMutation,] = useMutation(postNewVenueCode);
 
@@ -40,7 +40,7 @@ export const NewCodeCard = ({ ...rest }) => {
         onChange={nextValue => {
           setFormValue(nextValue);
           setNewCode(
-            `checkomo.com/checkin/${selectedVenue.id}/${nextValue.newVenueCode}`
+            `checkin.checkomo.com/${selectedVenue.id}/${nextValue.newVenueCode}`
           );
         }}
         onSubmit={async (event) => {
