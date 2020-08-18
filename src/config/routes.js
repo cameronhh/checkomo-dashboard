@@ -9,7 +9,7 @@ export const routes = [
     path: '/signup',
     component: 'SignUp',
     guest: true,
-    enabled: true,
+    enabled: false,
   },
   {
     path: '/',

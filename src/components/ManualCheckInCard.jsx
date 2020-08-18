@@ -8,6 +8,7 @@ import {
   Form,
   FormField,
   MaskedInput,
+  ResponsiveContext,
   TextInput,
   Heading
 } from "grommet";
@@ -47,10 +48,12 @@ export const ManualCheckInCard = ({ name, count, ...rest }) => {
 
   const [newVisitMutation,] = useMutation(postVisit);
 
+  const size = useContext(ResponsiveContext);
+
   return (
-    <Card>
+    <Card width={size === "large" ? "medium" : ""}>
       <Heading level="2" margin="none" size="small">
-        Manually Check-In Customer
+        Manual Check-In
       </Heading>
       <Box>
         <Form

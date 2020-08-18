@@ -84,7 +84,7 @@ export const RecentCheckInsCard = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Card>
+    <Card width={size === "large" ? "large" : ""}>
       <Box direction="row" justify="between" gap="small">
         <Heading level="2" margin="none" size="small">
           Recent Check-Ins

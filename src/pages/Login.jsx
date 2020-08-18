@@ -23,7 +23,7 @@ const Login = (props) => {
   document.title = "Login | Checkomo";
 
   const [loginFormValue, setLoginFormValue] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 

@@ -8,12 +8,18 @@ import {
   Card
 } from "../components";
 
+import { postSignUp } from "../api";
+
+import { useMutation } from "react-query";
+
 export const SignUpForm = () => {
   const [signUpFormValue, setSignUpFormValue] = useState({
-    username: '',
+    email: '',
     password: '',
     passwordConfirm: '',
   });
+
+  const [signUpMutation,] = useMutation(postSignUp);
 
   const passwordMismatch =
     signUpFormValue.password && signUpFormValue.passwordConfirm 
@@ -30,17 +36,16 @@ export const SignUpForm = () => {
         onChange={nextValue => setSignUpFormValue(nextValue)}
         onSubmit={(event) => {
           console.log(signUpFormValue)
-          // event.preventDefault();
-          // handleSignUp
+          signUpMutation(signUpFormValue)
         }}
       >
-        <FormField required name="username" label="Email">
-          <TextInput type="email" name="username" />
+        <FormField required name="email" label="Email">
+          <TextInput type="email" name="email" />
         </FormField>
         <FormField required type="password" name="password" label="Password">
           <TextInput name="password" type='password' />
         </FormField>
-        <FormField required type="passwordConfirm" name="password" label="Confirm Password">
+        <FormField required name="passwordConfirm" type="password" label="Confirm Password">
           <TextInput name="passwordConfirm" type='password' />
         </FormField>
         {passwordMismatch && (
@@ -50,7 +55,7 @@ export const SignUpForm = () => {
         )}
         <Box pad={{ top: "small" }} gap="small">
           <Button
-            active={passwordMismatch}
+            active={!!passwordMismatch}
             primary
             type="submit"
             label="Create Account"
