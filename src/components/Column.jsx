@@ -4,6 +4,6 @@ import { Box } from "grommet";
 
 export const Column = ({ ...rest }) => {
   return (
-    <Box gap="large" flex="grow" margin="medium" {...rest} />
+    <Box gap="large" align="center" flex="grow" margin="medium" {...rest} />
   )
 }

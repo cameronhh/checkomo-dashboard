@@ -68,8 +68,8 @@ export const ListCodesCard = ({ ...rest }) => {
                         <strong>{datum.name}</strong>
                       </TableCell>}
                       <TableCell align="start">{datum.code}</TableCell>
-                      <TableCell size="1/4" align="center">
-                        <Box justify="end" gap="small" direction="row">
+                      <TableCell align="center">
+                        <Box gap="small" direction="row">
                           <Button
                             plain
                             href={`/qr/generate/${datum.venue_id}/${datum.code}`}

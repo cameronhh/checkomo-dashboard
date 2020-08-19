@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   Box,
+  ResponsiveContext,
 } from "grommet";
 
 export const Card = ({...rest}) => {
+  const size = useContext(ResponsiveContext);
+
   return (
     <Box
       round
@@ -14,6 +17,7 @@ export const Card = ({...rest}) => {
       direction="column"
       background={{light: "white", dark: "black"}}
       gap="medium"
+      width={size !== "small" && size !== "medium" ? size : ""}
       {...rest}
     />
   )

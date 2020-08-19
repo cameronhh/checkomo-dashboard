@@ -51,7 +51,7 @@ export const ManualCheckInCard = ({ name, count, ...rest }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Card width={size === "large" ? "medium" : ""}>
+    <Card width={size !== "small" ? size : ""}>
       <Heading level="2" margin="none" size="small">
         Manual Check-In
       </Heading>
