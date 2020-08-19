@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { Menu } from "grommet";
+import { 
+  Menu,
+} from "grommet";
 
 import {
   UserSettings,
@@ -11,10 +13,13 @@ import {
   // switchTheme,
 } from "../api"
 
+import { UserContext } from "../UserContext";
+
 import { removeLocalSelectedVenue } from "../store";
 
 
 export const UserMenu = (props) => {
+  const { loggedIn } = useContext(UserContext);
 
   const menuItems = [
     {
@@ -35,6 +40,7 @@ export const UserMenu = (props) => {
   ]
 
   return (
+    loggedIn &&
     <Menu
       focusIndicator={false}
       dropProps={{ align: { top: 'bottom', right: 'right' } }}

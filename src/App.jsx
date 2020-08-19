@@ -74,40 +74,7 @@ export const App = () => {
             {size =>
               (
                 <Box fill>
-                  <AppBar>
-                    <Box direction="row" align="center">
-                      {
-                        loggedIn &&
-                          size === "small" ?
-                          <Button
-                            icon={
-                              <Menu
-                                color={showSidebar ? "accent-1" : "white"}
-                              />
-                            }
-                            focusIndicator={false}
-                            onClick={() => setShowSidebar(!showSidebar)}
-                          />
-                          :
-                          <Button
-                            plain
-                            href="/"
-                            icon={<Map />}
-                            label={
-                              size !== "xsmall" &&
-                              size !== "small" &&
-                              <Heading level='3' margin="none">Checkomo{(selectedVenue && loggedIn) && ` - ${selectedVenue.name}`}</Heading>
-                            }
-                          />
-                      }
-                    </Box>
-                    {size === "small" && <Box direction="row" align="center">
-                      <Heading level='3' margin='small'>{(selectedVenue && loggedIn) && `${selectedVenue.name}`}</Heading>
-                    </Box>}
-                    <Box direction="row" align="center">
-                      {loggedIn && <UserMenu />}
-                    </Box>
-                  </AppBar>
+                  <AppBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
                   <Box direction="row" fill>
                     {
                       (loggedIn) &&
