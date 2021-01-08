@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Box } from "grommet";
+import { Box } from 'grommet';
 
 export const Avatar = ({ name, url, ...rest }) => (
   <Box
@@ -8,7 +8,7 @@ export const Avatar = ({ name, url, ...rest }) => (
     height="avatar"
     width="avatar"
     round="full"
-    background={{light: 'white', dark: 'black'}}
+    background={{ light: 'white', dark: 'black' }}
     align="center"
     justify="center"
     overflow="hidden"

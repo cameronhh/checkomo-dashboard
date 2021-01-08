@@ -1,12 +1,8 @@
-
 import React, { useContext } from 'react';
 
-import {
-  Box,
-  ResponsiveContext,
-} from "grommet";
+import { Box, ResponsiveContext } from 'grommet';
 
-export const Card = ({...rest}) => {
+export const Card = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -15,10 +11,10 @@ export const Card = ({...rest}) => {
       pad="large"
       elevation="small"
       direction="column"
-      background={{light: "white", dark: "black"}}
+      background={{ light: 'white', dark: 'black' }}
       gap="medium"
-      width={size !== "small" && size !== "medium" ? size : ""}
+      width={size !== 'small' && size !== 'medium' ? size : ''}
       {...rest}
     />
-  )
-}
+  );
+};

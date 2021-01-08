@@ -1,24 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { Box, Heading, Paragraph } from "grommet";
-import { Halt } from "grommet-icons";
+import { Box, Heading, Paragraph } from 'grommet';
+import { Halt } from 'grommet-icons';
 
-import {
-  Column,
-  Row,
-  View,
-} from "../components";
-
+import { Column, Row, View } from '../components';
 
 const NotFound = () => {
-  document.title = "Page Not Found | Checkomo";
+  document.title = 'Page Not Found | Checkomo';
 
   return (
     <View>
       <Row>
         <Column>
           <Box align="center">
-            <Halt size="xlarge" color={{ light: "brand", dark: "accent-1" }} />
+            <Halt size="xlarge" color={{ light: 'brand', dark: 'accent-1' }} />
             <Heading textAlign="center" level="2">
               Uh oh!
             </Heading>
@@ -30,6 +25,6 @@ const NotFound = () => {
       </Row>
     </View>
   );
-}
+};
 
 export default NotFound;

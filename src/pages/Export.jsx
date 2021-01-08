@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import {
-  Column,
-  ExportsCard,
-  Row,
-  View,
-} from "../components";
-
+import { Column, ExportsCard, Row, View } from '../components';
 
 const Export = () => {
-  document.title = "Export | Checkomo";
+  document.title = 'Export | Checkomo';
   return (
     <View>
       <Row>
@@ -19,6 +13,6 @@ const Export = () => {
       </Row>
     </View>
   );
-}
+};
 
 export default Export;

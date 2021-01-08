@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import {
-  Column,
-  RecentCheckInsCard,
-  Row,
-  View
-} from "../components";
-
+import { Column, RecentCheckInsCard, Row, View } from '../components';
 
 const Dashboard = () => {
-  document.title = "Recent Check-Ins | Checkomo";
+  document.title = 'Recent Check-Ins | Checkomo';
   return (
     <View>
       <Row>
@@ -19,6 +13,6 @@ const Dashboard = () => {
       </Row>
     </View>
   );
-}
+};
 
 export default Dashboard;

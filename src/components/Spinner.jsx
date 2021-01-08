@@ -1,17 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import {
-  Box,
-} from "grommet";
+import { Box } from 'grommet';
 
 const spinning = (
-  <svg
-    version="1.1"
-    viewBox="0 0 32 32"
-    width="28px"
-    height="28px"
-    fill="#7D4CDB"
-  >
+  <svg version="1.1" viewBox="0 0 32 32" width="28px" height="28px" fill="#7D4CDB">
     <path
       opacity=".25"
       d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"
@@ -34,4 +26,3 @@ export const Spinner = () => (
     {spinning}
   </Box>
 );
-

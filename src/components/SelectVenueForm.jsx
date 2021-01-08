@@ -1,21 +1,13 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState } from 'react';
 
-import {
-  Box,
-  Button,
-  Select,
-} from "grommet";
+import { Box, Button, Select } from 'grommet';
 
+import { setLocalSelectedVenue } from '../store';
 
-import { setLocalSelectedVenue } from "../store";
-
-import { UserContext } from "../UserContext";
-
+import { UserContext } from '../UserContext';
 
 export const SelectVenueForm = ({ venues }) => {
-  const {
-    setSelectedVenue
-  } = useContext(UserContext);
+  const { setSelectedVenue } = useContext(UserContext);
 
   const [venueSelect, setVenueSelect] = useState('');
 
@@ -31,8 +23,7 @@ export const SelectVenueForm = ({ venues }) => {
         primary
         label="Set"
         onClick={() => {
-          const selected =
-            (venues.filter((v) => (v.name === venueSelect)))[0];
+          const selected = venues.filter((v) => v.name === venueSelect)[0];
           setSelectedVenue(selected);
           setLocalSelectedVenue(selected);
           window.location.reload(false);
@@ -40,4 +31,4 @@ export const SelectVenueForm = ({ venues }) => {
       />
     </Box>
   );
-}
+};

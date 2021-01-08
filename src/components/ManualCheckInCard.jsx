@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { Fragment, useState, useContext } from 'react';
 
 import {
   Box,
@@ -10,28 +10,25 @@ import {
   MaskedInput,
   ResponsiveContext,
   TextInput,
-  Heading
-} from "grommet";
+  Heading,
+} from 'grommet';
 
-import { Card } from '../components'
+import { Card } from '../components';
 
-import { postVisit } from '../api'
+import { postVisit } from '../api';
 import { useMutation } from 'react-query';
 
-
-import { UserContext } from "../UserContext";
+import { UserContext } from '../UserContext';
 
 const SimpleCheckBox = ({ checked: checkedProp, setCheckedParent, ...rest }) => {
   const [checked, setChecked] = useState(!!checkedProp);
-  const onChange = event => {
+  const onChange = (event) => {
     setChecked(event.target.checked);
-    setCheckedParent(event.target.checked)
-  }
+    setCheckedParent(event.target.checked);
+  };
 
-  return (
-    <CheckBox {...rest} checked={checked} onChange={onChange} />
-  );
-}
+  return <CheckBox {...rest} checked={checked} onChange={onChange} />;
+};
 
 export const ManualCheckInCard = ({ name, count, ...rest }) => {
   const { selectedVenue } = useContext(UserContext);
@@ -46,31 +43,33 @@ export const ManualCheckInCard = ({ name, count, ...rest }) => {
     customerAddress: '',
   });
 
-  const [newVisitMutation,] = useMutation(postVisit);
+  const [newVisitMutation] = useMutation(postVisit);
 
   const size = useContext(ResponsiveContext);
 
   return (
-    <Card width={size !== "small" ? size : ""}>
+    <Card width={size !== 'small' ? size : ''}>
       <Heading level="2" margin="none" size="small">
         Manual Check-In
       </Heading>
       <Box>
         <Form
           value={formValue}
-          onChange={nextValue => {
-            setFormValue(nextValue)
+          onChange={(nextValue) => {
+            setFormValue(nextValue);
           }}
           validate="submit"
-          onReset={() => setFormValue({
-            customerFirstName: '',
-            customerSurname: '',
-            customerPhone: '',
-            customerEmail: '',
-            customerAddress: '',
-          })}
+          onReset={() =>
+            setFormValue({
+              customerFirstName: '',
+              customerSurname: '',
+              customerPhone: '',
+              customerEmail: '',
+              customerAddress: '',
+            })
+          }
           onSubmit={async (event) => {
-            event.preventDefault()
+            event.preventDefault();
             // send to db
             newVisitMutation({ ...formValue, venueId: selectedVenue.id });
 
@@ -80,45 +79,27 @@ export const ManualCheckInCard = ({ name, count, ...rest }) => {
               customerPhone: '',
               customerEmail: '',
               customerAddress: '',
-            })
+            });
             // display result on screen somewhere
           }}
         >
           <Box>
-            <FormField
-              required={true}
-              name="customerFirstName"
-              label="First Name"
-            >
+            <FormField required={true} name="customerFirstName" label="First Name">
               <TextInput name="customerFirstName" type="text" />
             </FormField>
-            <FormField
-              required={true}
-              name="customerSurname"
-              label="Last Name"
-            >
+            <FormField required={true} name="customerSurname" label="Last Name">
               <TextInput name="customerSurname" type="text" />
             </FormField>
-            <FormField
-              required={true}
-              name="customerPhone"
-              label="Phone"
-            >
+            <FormField required={true} name="customerPhone" label="Phone">
               <TextInput name="customerPhone" type="text" />
             </FormField>
-            <FormField
-              name="customerEmail"
-              label="Email"
-            >
+            <FormField name="customerEmail" label="Email">
               <TextInput name="customerEmail" type="text" />
             </FormField>
-            <FormField
-              name="customerAddress"
-              label="Address"
-            >
+            <FormField name="customerAddress" label="Address">
               <TextInput name="customerAddress" type="text" />
             </FormField>
-            <Box margin={{ top: "small" }}>
+            <Box margin={{ top: 'small' }}>
               <Box align="center">
                 <SimpleCheckBox
                   checked={EnterTime}
@@ -128,31 +109,21 @@ export const ManualCheckInCard = ({ name, count, ...rest }) => {
                   setCheckedParent={setEnterTime}
                 />
               </Box>
-              {
-                EnterTime &&
+              {EnterTime && (
                 <Fragment>
-                  <FormField
-                    required={true}
-                    name="customerCheckInDate"
-                    label="Date"
-                  >
+                  <FormField required={true} name="customerCheckInDate" label="Date">
                     <DateInput
                       name="customerCheckInDate"
                       format="dd/mm/yyyy"
                       value={formValue.customerCheckInDate}
                     />
                   </FormField>
-                  <FormField
-                    required={true}
-                    name="customerCheckInTime"
-                    label="Time"
-                  >
+                  <FormField required={true} name="customerCheckInTime" label="Time">
                     <MaskedInput
                       mask={[
                         {
                           length: [1, 2],
-                          options: ['1', '2', '3', '4', '5', '6',
-                            '7', '8', '9', '10', '11', '12',],
+                          options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
                           regexp: /^1[1-2]$|^[0-9]$/,
                           placeholder: 'hh',
                         },
@@ -175,18 +146,14 @@ export const ManualCheckInCard = ({ name, count, ...rest }) => {
                     />
                   </FormField>
                 </Fragment>
-              }
+              )}
             </Box>
           </Box>
-          <Box pad={{ top: "medium" }} justify="center" direction="row" gap="medium">
-            <Button
-              primary
-              type="submit"
-              label={EnterTime ? "Check-In" : "Check-In Now"}
-            />
+          <Box pad={{ top: 'medium' }} justify="center" direction="row" gap="medium">
+            <Button primary type="submit" label={EnterTime ? 'Check-In' : 'Check-In Now'} />
           </Box>
         </Form>
       </Box>
     </Card>
-  )
-}
+  );
+};

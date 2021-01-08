@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { Box, Text, Heading } from "grommet";
+import { Box, Text, Heading } from 'grommet';
 
 export const ResponsiveCard = ({ name, count, ...rest }) => {
   return (
@@ -11,13 +11,13 @@ export const ResponsiveCard = ({ name, count, ...rest }) => {
       <Text size="90px" weight="bold">
         {count}
       </Text>
-      <Box gap="medium" pad={{ vertical: "small" }}>
+      <Box gap="medium" pad={{ vertical: 'small' }}>
         <Box direction="row" align="center">
           <Box pad="xsmall">
             <Text
               size="small"
-              color={{ light: "dark-1", dark: "light-1" }}
-              margin={{ left: "xsmall" }}
+              color={{ light: 'dark-1', dark: 'light-1' }}
+              margin={{ left: 'xsmall' }}
             >
               Helloooo
             </Text>
@@ -25,5 +25,5 @@ export const ResponsiveCard = ({ name, count, ...rest }) => {
         </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};

@@ -12,33 +12,29 @@ import {
   removeToken,
   setDarkMode,
   setToken,
-} from "../store";
+} from '../store';
 
 export const postLogin = async (loginParams) => {
-  const res = await axios.post(`${process.env.REACT_APP_API_BASE}/token`,
-    loginParams
-  );
+  const res = await axios.post(`${process.env.REACT_APP_API_BASE}/token`, loginParams);
 
   setToken(res.data.token);
 
   return res.data;
-}
+};
 
 export const postLogout = () => {
   return new Promise((resolve, reject) => {
     removeToken();
     removeAuthorisedVenues();
     resolve();
-  })
-}
+  });
+};
 
 export const handleLogout = () => {
-  postLogout().then(
-    () => {
-      window.location.reload(false);
-    }
-  )
-}
+  postLogout().then(() => {
+    window.location.reload(false);
+  });
+};
 
 export const switchTheme = () => {
   if (isDarkMode()) {
@@ -47,7 +43,7 @@ export const switchTheme = () => {
     setDarkMode(true);
   }
   window.location.reload(false);
-}
+};
 
 export const state = {
   logged: isTokenStored(),
@@ -57,4 +53,4 @@ export const state = {
   venues: getAuthorisedVenues(),
   hasSelectedVenue: isVenueSelected(),
   selectedVenue: getLocalSelectedVenue(),
-}
+};

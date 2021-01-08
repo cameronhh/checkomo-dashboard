@@ -1,12 +1,6 @@
 import React from 'react';
 
-import {
-  Column,
-  Row,
-  View,
-  SignUpForm
-} from "../components";
-
+import { Column, Row, View, SignUpForm } from '../components';
 
 const SignUp = (props) => {
   return (
@@ -17,7 +11,7 @@ const SignUp = (props) => {
         </Column>
       </Row>
     </View>
-  )
+  );
 };
 
 export default SignUp;

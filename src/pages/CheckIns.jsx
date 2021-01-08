@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import {
-  Column,
-  ManualCheckInCard,
-  Row,
-  View
-} from "../components";
-
+import { Column, ManualCheckInCard, Row, View } from '../components';
 
 const CheckIns = () => {
-  document.title = "Check-In | Checkomo";
+  document.title = 'Check-In | Checkomo';
   return (
     <View>
       <Row>
@@ -19,6 +13,6 @@ const CheckIns = () => {
       </Row>
     </View>
   );
-}
+};
 
 export default CheckIns;

@@ -1,5 +1,5 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
 export const importPage = (path) => {
-  return lazy(() => import(`../pages/${path}`))
-}
+  return lazy(() => import(`../pages/${path}`));
+};

@@ -1,30 +1,24 @@
-import {
-  Download,
-  Group,
-  Map,
-  Scan,
-  UserExpert
-} from "grommet-icons";
+import { Download, Group, Scan, UserExpert } from 'grommet-icons';
 
 export const sidebar = [
   {
-    label: "Recents",
+    label: 'Recents',
     Icon: Group,
-    path: "/"
+    path: '/',
   },
   {
-    label: "Check-In",
+    label: 'Check-In',
     Icon: UserExpert,
-    path: "/checkins"
+    path: '/checkins',
   },
   {
-    label: "QR Codes",
+    label: 'QR Codes',
     Icon: Scan,
-    path: "/qr"
+    path: '/qr',
   },
   {
-    label: "Export",
+    label: 'Export',
     Icon: Download,
-    path: "/export"
+    path: '/export',
   },
 ];

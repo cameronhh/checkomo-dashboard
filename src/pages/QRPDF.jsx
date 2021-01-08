@@ -1,44 +1,31 @@
-import React, { createRef } from "react";
-import { useParams } from "react-router-dom";
+import React, { createRef } from 'react';
+import { useParams } from 'react-router-dom';
 
-import {
-  Box,
-  Button,
-  Heading,
-  Paragraph,
-} from "grommet";
+import { Box, Button, Heading, Paragraph } from 'grommet';
 
-import ReactToPdf from "react-to-pdf";
-import QRCode from "qrcode.react";
+import ReactToPdf from 'react-to-pdf';
+import QRCode from 'qrcode.react';
 
-import { pdfText } from "../config/pdfs";
-
+import { pdfText } from '../config/pdfs';
 
 const options = {
   orientation: 'portrait',
-  format: 'A4'
+  format: 'A4',
 };
 
 const ref = createRef();
 
 const QRPDF = () => {
-  document.title = "QR Codes | Checkomo";
+  document.title = 'QR Codes | Checkomo';
 
   const urlParams = useParams();
 
-  const checkInUrl = `${process.env.REACT_APP_CHECKIN_BASE}/`
-    + `${urlParams.venueId}/${urlParams.venueCode}`
+  const checkInUrl =
+    `${process.env.REACT_APP_CHECKIN_BASE}/` + `${urlParams.venueId}/${urlParams.venueCode}`;
 
   return (
-    <Box fill background={{ light: "light-2", dark: "dark-2" }}>
-      <Box
-        flex
-        responsive={false}
-        align="center"
-        overflow="scroll"
-        gap="xsmall"
-        pad="large"
-      >
+    <Box fill background={{ light: 'light-2', dark: 'dark-2' }}>
+      <Box flex responsive={false} align="center" overflow="scroll" gap="xsmall" pad="large">
         <ReactToPdf
           targetRef={ref}
           filename={`Check-In-${urlParams.venueId}-${urlParams.venueCode}.pdf`}
@@ -46,9 +33,7 @@ const QRPDF = () => {
           y={0}
           options={options}
         >
-          {({ toPdf }) => (
-            <Button primary onClick={toPdf} label="Download PDF" />
-          )}
+          {({ toPdf }) => <Button primary onClick={toPdf} label="Download PDF" />}
         </ReactToPdf>
         <Box
           ref={ref}
@@ -59,8 +44,8 @@ const QRPDF = () => {
           border
           margin="large"
           background="white"
-          width={{ min: "794px", max: "794px" }}
-          height={{ min: "1123px", max: "1123px" }}
+          width={{ min: '794px', max: '794px' }}
+          height={{ min: '1123px', max: '1123px' }}
           hidden
         >
           <Heading textAlign="center" level="1">
@@ -69,25 +54,12 @@ const QRPDF = () => {
           <Paragraph textAlign="center" color="dark-4">
             {pdfText.subHeader}
           </Paragraph>
-          <Box>
-            {
-              urlParams &&
-              <QRCode
-                value={checkInUrl}
-                level="H"
-                size={512}
-
-              />
-            }
-          </Box>
+          <Box>{urlParams && <QRCode value={checkInUrl} level="H" size={512} />}</Box>
           <Box align="center">
-            <Heading
-              textAlign="center"
-              level="2"
-            >
+            <Heading textAlign="center" level="2">
               {checkInUrl}
             </Heading>
-            <Paragraph textAlign="center" color={"dark-4"}>
+            <Paragraph textAlign="center" color={'dark-4'}>
               {pdfText.byLine}
             </Paragraph>
           </Box>
@@ -95,6 +67,6 @@ const QRPDF = () => {
       </Box>
     </Box>
   );
-}
+};
 
 export default QRPDF;

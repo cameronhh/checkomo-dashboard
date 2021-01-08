@@ -1,18 +1,14 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState } from 'react';
 
-import {
-  Box,
-  Button,
-  TextInput,
-} from "grommet";
+import { Box, Button, TextInput } from 'grommet';
 
-import { useMutation } from "react-query";
+import { useMutation } from 'react-query';
 
-import { postCreateVenue } from "../api";
+import { postCreateVenue } from '../api';
 
-import { setLocalSelectedVenue } from "../store";
+import { setLocalSelectedVenue } from '../store';
 
-import { UserContext } from "../UserContext";
+import { UserContext } from '../UserContext';
 
 export const NewVenueForm = () => {
   const [newVenueName, setNewVenueName] = useState('');
@@ -20,7 +16,7 @@ export const NewVenueForm = () => {
 
   const { setSelectedVenue } = useContext(UserContext);
 
-  const [newVenueMutation,] = useMutation(postCreateVenue);
+  const [newVenueMutation] = useMutation(postCreateVenue);
 
   return (
     <Box pad="medium" gap="medium">
@@ -43,16 +39,14 @@ export const NewVenueForm = () => {
           newVenueMutation({
             name: newVenueName,
             address: newVenueAddress,
-            timezone: Intl.DateTimeFormat()
-              .resolvedOptions().timeZone,
-          })
-            .then((res) => {
-              setSelectedVenue(res);
-              setLocalSelectedVenue(res);
-              window.location.reload(false);
-            })
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          }).then((res) => {
+            setSelectedVenue(res);
+            setLocalSelectedVenue(res);
+            window.location.reload(false);
+          });
         }}
       />
     </Box>
   );
-}
+};

@@ -1,12 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import {
-  Column,
-  SettingsCard,
-  Row,
-  View
-} from "../components";
-
+import { Column, SettingsCard, Row, View } from '../components';
 
 const Settings = () => {
   return (
@@ -18,6 +12,6 @@ const Settings = () => {
       </Row>
     </View>
   );
-}
+};
 
 export default Settings;
