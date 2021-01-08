@@ -20,8 +20,7 @@ const QRPDF = () => {
 
   const urlParams = useParams();
 
-  const checkInUrl =
-    `${process.env.REACT_APP_CHECKIN_BASE}/` + `${urlParams.venueId}/${urlParams.venueCode}`;
+  const checkInUrl = `${process.env.REACT_APP_CHECKIN_BASE}/${urlParams.venueId}/${urlParams.venueCode}`;
 
   return (
     <Box fill background={{ light: 'light-2', dark: 'dark-2' }}>
