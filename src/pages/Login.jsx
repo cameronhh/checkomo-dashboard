@@ -29,7 +29,7 @@ const Login = (props) => {
         <Column>
           <Card>
             <Heading level="2" textAlign="center" margin="none" size="small">
-              Checkomo Login
+              Checkomo Login2
             </Heading>
             <Form
               value={loginFormValue}
