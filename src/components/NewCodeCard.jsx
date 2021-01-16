@@ -16,7 +16,7 @@ export const NewCodeCard = ({ ...rest }) => {
     newVenueCodeName: '',
     newVenueCode: '',
   });
-  const [newCode, setNewCode] = useState(`checkin.checkomo.com/...`);
+  const [newCode, setNewCode] = useState(`${process.env.REACT_APP_CHECKIN_BASE}/...`);
 
   const [newVenueCodeMutation] = useMutation(postNewVenueCode);
 
@@ -29,7 +29,9 @@ export const NewCodeCard = ({ ...rest }) => {
         value={formValue}
         onChange={(nextValue) => {
           setFormValue(nextValue);
-          setNewCode(`checkin.checkomo.com/${selectedVenue.id}/${nextValue.newVenueCode}`);
+          setNewCode(
+            `${process.env.REACT_APP_CHECKIN_BASE}/${selectedVenue.id}/${nextValue.newVenueCode}`
+          );
         }}
         onSubmit={async (event) => {
           event.preventDefault();
