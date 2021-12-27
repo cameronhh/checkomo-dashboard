@@ -1,3 +1,5 @@
+**_This project is no longer active_**
+
 # Client Dashboard App - Checkomo
 A mobile-friendly, web application dashboard for managing Checkomo - a QR Code Check-In Application - for your business.
 
